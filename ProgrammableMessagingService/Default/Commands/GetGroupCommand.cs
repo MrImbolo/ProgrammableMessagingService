@@ -30,5 +30,11 @@ namespace ProgrammableMessagingService.Default.Commands
                 Text = "Sorry, I cannot find anything useful for you."
             });
         }
+
+        public override ValueTask<ICommandExecutionResult<IMessage, IMessage, EResponseStatus>> ExecuteAsync(
+            CancellationToken ct = default)
+        {
+            return ValueTask.FromResult(Execute());
+        }
     }
 }

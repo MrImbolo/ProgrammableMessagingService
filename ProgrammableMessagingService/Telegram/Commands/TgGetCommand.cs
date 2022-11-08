@@ -26,5 +26,11 @@ namespace ProgrammableMessagingService.Telegram.Commands
                 Text = "Sorry, I cannot find anything useful for you."
             });
         }
+
+        public override ValueTask<ICommandExecutionResult<Update, Message, EResponseStatus>> ExecuteAsync(
+            CancellationToken ct = default)
+        {
+            return ValueTask.FromResult(Execute());
+        }
     }
 }

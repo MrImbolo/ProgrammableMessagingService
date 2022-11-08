@@ -32,5 +32,11 @@ namespace ProgrammableMessagingService.Default.Commands
                 Text = "Sorry, the group you're looking for does not exist."
             });
         }
+
+        public override ValueTask<ICommandExecutionResult<IMessage, IMessage, EResponseStatus>> ExecuteAsync(
+            CancellationToken ct = default)
+        {
+            return ValueTask.FromResult(Execute());
+        }
     }
 }

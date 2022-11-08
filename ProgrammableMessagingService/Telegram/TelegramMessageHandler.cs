@@ -36,5 +36,10 @@ namespace ProgrammableMessagingService.Telegram
 
             return new TgErrorCommand(new TgCommandConstructorArgs(_context, message, null!)).Execute();
         }
+
+        public ValueTask<ICommandExecutionResult<Update, Message, EResponseStatus>> HandleAsync(Update message)
+        {
+            return ValueTask.FromResult(Handle(message));
+        }
     }
 }

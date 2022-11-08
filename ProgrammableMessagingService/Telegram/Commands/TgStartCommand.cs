@@ -18,5 +18,11 @@ namespace ProgrammableMessagingService.Telegram.Commands
                 Text = "Bot started. VOILA BITCHES!"
             });
         }
+
+        public override ValueTask<ICommandExecutionResult<Update, Message, EResponseStatus>> ExecuteAsync(
+            CancellationToken ct = default)
+        {
+            return ValueTask.FromResult(Execute());
+        }
     }
 }

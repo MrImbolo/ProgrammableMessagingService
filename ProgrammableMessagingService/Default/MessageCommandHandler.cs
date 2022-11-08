@@ -35,5 +35,10 @@ namespace ProgrammableMessagingService.Default
 
             return new ErrorCommand(new DefaultCommandConstructorArgs(_context, message, null!)).Execute();
         }
+
+        public ValueTask<ICommandExecutionResult<IMessage, IMessage, EResponseStatus>> HandleAsync(IMessage message)
+        {
+            return ValueTask.FromResult(Handle(message));
+        }
     }
 }

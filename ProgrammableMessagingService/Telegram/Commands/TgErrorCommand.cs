@@ -20,5 +20,11 @@ namespace ProgrammableMessagingService.Telegram.Commands
                 Text = "Sorry, I can't understard the bullshit you've typed."
             });
         }
+
+        public override ValueTask<ICommandExecutionResult<Update, Message, EResponseStatus>> ExecuteAsync(
+            CancellationToken ct = default)
+        {
+            return ValueTask.FromResult(Execute());
+        }
     }
 }

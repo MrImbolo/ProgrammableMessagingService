@@ -22,5 +22,11 @@ namespace ProgrammableMessagingService.Default.Commands
                 Text = "Sorry, I can't understard the bullshit you've typed."
             });
         }
+
+        public override ValueTask<ICommandExecutionResult<IMessage, IMessage, EResponseStatus>> ExecuteAsync(
+            CancellationToken ct = default)
+        {
+            return ValueTask.FromResult(Execute());
+        }
     }
 }
